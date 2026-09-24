@@ -28,8 +28,11 @@ const LIVE_DEMOS = {
       { name: "🧃 Making Juice", steps: ["🍊", "🔪", "🫗", "🥤", "😋"] },
       { name: "🎒 Getting Ready for School", steps: ["⏰", "🛏️", "👕", "🍚", "🎒"] },
       { name: "🌱 Planting a Seed", steps: ["🪴", "🌰", "🫗", "☀️", "🌱"] },
+      { name: "🍞 Making a Sandwich", steps: ["🍞", "🔪", "🧈", "🥪", "😋"] },
+      { name: "🧦 Getting Dressed", steps: ["🧦", "👟", "🧥", "🎒", "🚶"] },
+      { name: "🪟 Washing Hands", steps: ["🤲", "🧼", "🤲", "💦", "🧻"] },
     ];
-    let task, pool, ordered, done;
+    let task, pool, ordered, done, qNo;
 
     stage.innerHTML = `
       <div style="font-family:'Baloo 2';font-weight:700;color:#8e2157;z-index:1" id="da-task"></div>
@@ -47,11 +50,15 @@ const LIVE_DEMOS = {
     const taskEl = stage.querySelector("#da-task");
 
     function newTask() {
-      task = TASKS[Math.floor(Math.random() * TASKS.length)];
+      let next;
+      do { next = TASKS[Math.floor(Math.random() * TASKS.length)]; }
+      while (TASKS.length > 1 && next === task);
+      task = next;
       ordered = [];
       done = false;
+      qNo++;
       pool = shuffle(task.steps.slice());
-      taskEl.textContent = "Build the algorithm: " + task.name;
+      taskEl.textContent = `Question ${qNo}: Build the algorithm — ${task.name}`;
       noteEl.textContent = "Tap the step cards in order — first, next, then… last!";
       render();
     }
@@ -78,11 +85,17 @@ const LIVE_DEMOS = {
     });
     stage.querySelector("#da-check").addEventListener("click", () => {
       if (ordered.length !== task.steps.length) { noteEl.textContent = "⚠️ Use ALL the steps first!"; return; }
+      if (!task.steps.every((s, i) => ordered[i] === s)) {
+        noteEl.textContent = "❌ Wrong order — this task will fail! Tap steps on the wall to put them back, then try again.";
+        return;
+      }
       done = true;
-      noteEl.textContent = "🎉 Perfect algorithm! First … next … then … last. That is how programs work!";
+      noteEl.textContent = "🎉 Perfect algorithm! First … next … then … last. Loading a new question…";
+      setTimeout(newTask, 1400);
     });
     stage.querySelector("#da-new").addEventListener("click", newTask);
 
+    qNo = 0;
     newTask();
   },
 
@@ -212,8 +225,12 @@ const LIVE_DEMOS = {
       { name: "🐛 Butterfly", seq: ["🥚", "🐛", "🦋"], opts: ["🦋", "🐛", "🕷️"] },
       { name: "🌞 Day cycle", seq: ["🌅", "🌞", "🌇"], opts: ["🌙", "🌞", "⛅"] },
       { name: "🥛 Milk to cheese", seq: ["🐄", "🥛", "🧈"], opts: ["🧈", "🐄", "🍞"] },
+      { name: "🌧️ Rain grows plant", seq: ["☁️", "🌧️", "💧", "🌿"], opts: ["🌿", "☃️", "🌪️"] },
+      { name: "🐣 Chick hatches", seq: ["🥚", "🐣", "🐤", "🐔"], opts: ["🐔", "🥚", "🦜"] },
+      { name: "🌸 Flower blooms", seq: ["🌰", "🌱", "🌿", "🌸"], opts: ["🌸", "🌰", "🌵"] },
+      { name: "🫖 Hot drink", seq: ["🫖", "🔥", "💨", "☕"], opts: ["☕", "🧊", "🥤"] },
     ];
-    let cur, shown, locked;
+    let cur, shown, locked, qNo;
 
     stage.innerHTML = `
       <div style="font-family:'Baloo 2';font-weight:700;color:#8e2157;z-index:1" id="ns-name"></div>
@@ -228,10 +245,14 @@ const LIVE_DEMOS = {
     const noteEl = stage.querySelector("#ns-note");
 
     function newSeq() {
-      cur = SEQS[Math.floor(Math.random() * SEQS.length)];
+      let next;
+      do { next = SEQS[Math.floor(Math.random() * SEQS.length)]; }
+      while (SEQS.length > 1 && next === cur);
+      cur = next;
       shown = cur.seq.length - 1;
       locked = false;
-      stage.querySelector("#ns-name").textContent = "Pattern machine: " + cur.name;
+      qNo++;
+      stage.querySelector("#ns-name").textContent = `Question ${qNo}: Pattern machine — ${cur.name}`;
       noteEl.textContent = "Study the pattern, then predict the next card!";
       render();
     }
@@ -248,9 +269,8 @@ const LIVE_DEMOS = {
           if (o === cur.seq[shown]) {
             locked = true;
             b.classList.add("right");
-            shown++;
-            noteEl.textContent = "✅ Correct prediction! Programs follow patterns — you knew what happens next!";
-            render();
+            noteEl.textContent = "✅ Correct prediction! Programs follow patterns — loading a new question…";
+            setTimeout(newSeq, 1400);
           } else {
             b.classList.add("wrong");
             noteEl.textContent = "❌ Not that one — look at the pattern again!";
@@ -262,6 +282,7 @@ const LIVE_DEMOS = {
     }
 
     stage.querySelector("#ns-new").addEventListener("click", newSeq);
+    qNo = 0;
     newSeq();
   },
 
