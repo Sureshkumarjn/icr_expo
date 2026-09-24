@@ -1,0 +1,373 @@
+/* ============================================================
+   ICT EXPO — 12 projects data
+   Grade 1 book: 1.1 Algorithms all around us · 1.2 Bee-Bot beginnings
+                 1.3 What happens next? · 1.4 Spot the bug · 2.1 Using data
+   Grade 2 book: 1.1 Precise algorithms · 1.2 Debugging programs
+                 1.3 Animal animations (SCRATCH) · 1.4 Repeat, repeat, repeat
+                 2.1 Data all around
+   ============================================================ */
+const PROJECTS = [
+  /* ---------------- GRADE 1 ---------------- */
+  {
+    id: "g1-p1",
+    grade: "Grade 1",
+    no: 1,
+    title: "Algorithms All Around Us — Step-by-Step Wall",
+    menu: "Algorithms All Around Us",
+    module: "Module 1: Computational thinking and programming · 1.1 Algorithms all around us",
+    image: "images/g1_p1.svg",
+    description:
+      "A chart-board wall of everyday algorithms — brushing teeth, making juice, getting ready for school. Pupils arrange picture steps in the right order and discover that algorithms are all around us.",
+    explanation: [
+      "An algorithm is a list of steps to finish a task — and they are all around us! Brushing teeth, making a sandwich, and getting dressed are all algorithms.",
+      "The board shows everyday activities as picture cards. Each card is one step: first, next, then, last.",
+      "Visitors pick an activity, arrange its steps in the right order on the wall, and read the algorithm out loud: 'First squeeze the toothpaste, next brush, then rinse, last wipe your mouth.'",
+      "If the steps are in the wrong order, the task fails — just like a program. That is why order in an algorithm matters.",
+    ],
+    materials: [
+      "Chart board base (thick cardboard)",
+      "Picture cards of daily-routine steps",
+      "Velcro or sticky tack",
+      "Colour markers, glue, scissors",
+    ],
+    steps: [
+      "Draw and cut picture cards for 3–4 everyday activities.",
+      "Shuffle the cards and fix a big 'algorithm wall' on the board.",
+      "Invite a visitor: they arrange one activity's steps in the correct order.",
+      "They read the algorithm aloud — first, next, then, last!",
+    ],
+    live: "dailyAlgo",
+  },
+  {
+    id: "g1-p2",
+    grade: "Grade 1",
+    no: 2,
+    title: "Bee-Bot Beginnings — Cardboard Robot Grid",
+    menu: "Bee-Bot Beginnings",
+    module: "Module 1: Computational thinking and programming · 1.2 Bee-Bot beginnings",
+    image: "images/g1_p2.svg",
+    description:
+      "A cardboard Bee-Bot floor robot on a taped grid. Children press arrow buttons to program it forward, left and right to reach the flower — beginning robotics with an unhurried friend.",
+    explanation: [
+      "A Bee-Bot is a friendly floor robot that remembers the buttons you press and then follows them in order — this is called a sequence.",
+      "On the taped grid, the Bee-Bot starts on one square and must reach the flower on another square.",
+      "A child plans the route first (thinking like a programmer), then presses the arrow buttons: FORWARD, FORWARD, TURN RIGHT, FORWARD…",
+      "Press GO and the Bee-Bot follows the stored sequence exactly. If it goes the wrong way, the child re-programs — that is computational thinking!",
+    ],
+    materials: [
+      "Cardboard Bee-Bot model with arrow buttons",
+      "Taped floor grid (or mat with squares)",
+      "Flower / goal cut-out",
+      "Battery + buzzer (optional beep)",
+    ],
+    steps: [
+      "Tape the grid on the floor and place the flower goal square.",
+      "Put the Bee-Bot on the start square.",
+      "The child plans the route aloud, then presses the arrow buttons in order.",
+      "Press GO — the Bee-Bot follows the sequence to the flower!",
+    ],
+    live: "beebot",
+  },
+  {
+    id: "g1-p3",
+    grade: "Grade 1",
+    no: 3,
+    title: "What Happens Next? — Story Prediction Machine",
+    menu: "What Happens Next?",
+    module: "Module 1: Computational thinking and programming · 1.3 What happens next?",
+    image: "images/g1_p3.svg",
+    description:
+      "A story-machine board: a sequence is shown (seed → sprout → plant) and the visitor predicts the next step by choosing a card. Programs follow patterns — and we can predict what happens next!",
+    explanation: [
+      "Programs follow patterns. When we see the pattern, we can predict what happens next — a key thinking skill in programming.",
+      "The machine shows a growing sequence on its window: seed → sprout → small plant → …",
+      "The visitor studies the pattern and predicts the next card from three choices.",
+      "When they predict right, the machine 'flips' the next card into place. Patterns make the future predictable — in stories and in code!",
+    ],
+    materials: [
+      "Cardboard machine frame with a display window",
+      "Sequence cards (seed → sprout → plant → flower)",
+      "3 prediction-choice pockets",
+      "Slider or flip mechanism",
+    ],
+    steps: [
+      "Build the machine frame with a display window and a card slot.",
+      "Feed the sequence cards into the window one by one.",
+      "The visitor studies the pattern and picks the next-step card from the choices.",
+      "Correct prediction — the machine reveals the next card! Try all the sequences.",
+    ],
+    live: "nextStep",
+  },
+  {
+    id: "g1-p4",
+    grade: "Grade 1",
+    no: 4,
+    title: "Spot the Bug — Fix the Silly Robot",
+    menu: "Spot the Bug",
+    module: "Module 1: Computational thinking and programming · 1.4 Spot the bug",
+    image: "images/g1_p4.svg",
+    description:
+      "A funny robot poster doing everyday tasks wrongly — sock on hand, shoes on wrong feet. Visitors spot the bug in each picture and paste the correct fix card. Debugging made silly and fun!",
+    explanation: [
+      "Sometimes programs (and people!) make mistakes. Finding the mistake is called spotting the bug.",
+      "The poster shows a silly robot doing simple tasks wrongly: sock on his hand, shoes on the wrong feet, hat on his nose.",
+      "The visitor plays detective: find what is wrong in each picture, then choose the correct fix card from the fix pile.",
+      "Pasting the right fix makes the robot sensible again — debugging means find the bug, then fix it!",
+    ],
+    materials: [
+      "Silly robot poster (drawn with deliberate mistakes)",
+      "Correct fix cards (shoe, sock, hat…)",
+      "Velcro / sticky tack",
+      "Detective magnifying glass prop",
+    ],
+    steps: [
+      "Draw the silly robot with 4–5 deliberate bugs.",
+      "Prepare a pile of correct fix cards.",
+      "The visitor finds a bug and points with the magnifying glass.",
+      "They paste the correct fix card over the bug — robot fixed!",
+    ],
+    live: "spotBug",
+  },
+  {
+    id: "g1-p5",
+    grade: "Grade 1",
+    no: 5,
+    title: "Using Data — Data Detective Picture Chart",
+    menu: "Using Data",
+    module: "Module 2: Managing data · 2.1 Using data",
+    image: "images/g1_p5.svg",
+    description:
+      "A ready-made picture chart of the creatures we counted in the garden. Children become data detectives: they read the chart and answer questions about it — which is most, which is least, and how many more.",
+    explanation: [
+      "Data is information we collect to answer questions. When the data is already on a chart, we can read it to find the answers.",
+      "On this chart one picture stands for one creature, so we count the pictures in each row to find the total.",
+      "Detectives compare the rows: the longest row is the MOST, the shortest row is the LEAST.",
+      "Then we answer questions with the data: how many are there, and how many MORE one kind is than another.",
+    ],
+    materials: [
+      "Chart paper with one row for each creature",
+      "Picture cards or stickers for the chart",
+      "Question cards for the detective",
+      "Pointer stick for reading the chart",
+    ],
+    steps: [
+      "Make the chart: one picture for each creature we counted.",
+      "Count the pictures in every row.",
+      "Compare the rows — which is most, which is least?",
+      "Answer the detective questions using the chart.",
+    ],
+    live: "dataDetective",
+  },
+  {
+    id: "g1-p6",
+    grade: "Grade 1",
+    no: 6,
+    title: "My Computer Works — Input · Process · Output Box",
+    menu: "My Computer Works",
+    module: "Module 2: Managing data · 2.2 Classifying data (project week)",
+    image: "images/g1_p6.svg",
+    description:
+      "A cardboard computer box with three openings: IN (keyboard/mouse), WORK (thinking light), OUT (monitor/printer). Visitors feed input cards and receive output cards — how a computer works, made touchable.",
+    explanation: [
+      "A computer works in three steps: INPUT (we give information), PROCESS (it thinks), OUTPUT (it gives the result).",
+      "The giant cardboard computer has a mouth for input cards and a slot for output cards. A thinking LED blinks in the middle while it 'processes'.",
+      "A visitor feeds an input card (e.g. 2 + 3) into the INPUT mouth.",
+      "Blink… blink… and the machine outputs the answer card (5)! Input → Process → Output, touched and understood.",
+    ],
+    materials: [
+      "Big cardboard computer box",
+      "INPUT mouth + OUTPUT slot openings",
+      "Input/output task cards (2+3, A→a, sun→day)",
+      "Blinking LED + battery for the 'thinking' light",
+    ],
+    steps: [
+      "Build the computer box with IN and OUT openings.",
+      "Wire the blinking thinking LED inside.",
+      "Visitor picks an input card and feeds it into the INPUT mouth.",
+      "Machine 'thinks', then the helper pulls out the matching output card!",
+    ],
+    live: "ipo",
+  },
+
+  /* ---------------- GRADE 2 ---------------- */
+  {
+    id: "g2-p1",
+    grade: "Grade 2",
+    no: 1,
+    title: "Precise Algorithms — Sandwich Robot Challenge",
+    menu: "Precise Algorithms",
+    module: "Module 1: Computational thinking and programming · 1.1 Precise algorithms",
+    image: "images/g2_p1.svg",
+    description:
+      "A cardboard robot chef who takes every instruction literally! Visitors give exact step cards to make a sandwich — missing or vague steps cause hilarious (and instructive) results.",
+    explanation: [
+      "A computer does exactly what you say — nothing more, nothing less. Precise algorithms leave nothing to guess.",
+      "The cardboard chef follows step cards literally: if you only say 'put the bread', he holds one slice and waits forever.",
+      "Visitors arrange precise step cards: take 2 bread slices → open the jam jar → spread jam with the knife → cover with slice 2 → press gently → serve.",
+      "Precise steps make a perfect sandwich. Vague steps make a mess — precision is the lesson!",
+    ],
+    materials: [
+      "Cardboard robot chef (moveable arms)",
+      "Sandwich step cards",
+      "Paper bread, jam, knife props",
+      "Instruction wall strip",
+    ],
+    steps: [
+      "Build the chef with a wall strip to order his steps.",
+      "Mix precise and vague cards in the deck.",
+      "The visitor orders the steps and the chef 'acts' each one.",
+      "Vague steps fail funny; precise steps make the sandwich — precision wins!",
+    ],
+    live: "sandwich",
+  },
+  {
+    id: "g2-p2",
+    grade: "Grade 2",
+    no: 2,
+    title: "Debugging Programs – Fix the Broken Maze",
+    menu: "Debugging Programs",
+    module: "Module 1: Computational thinking and programming · 1.2 Debugging programs",
+    image: "images/g2_p2.svg",
+    description:
+      "A cardboard maze with a wrong arrow-code path. The visitor finds the mistake (the bug) and pastes the correct arrow sticker to fix the path — with a magnifying-glass 'debugger' prop included.",
+    explanation: [
+      "A bug is a mistake in a program. Debugging means finding the bug and fixing it — just like a detective solves a case.",
+      "The cardboard maze has an arrow-code path stuck beside it: ↑ → ↑ ↓ … but one arrow is WRONG, so the path leads the robot into a wall.",
+      "The visitor becomes the Debugging Detective with the magnifying glass: they trace the path step by step until they find the wrong arrow.",
+      "They then paste the correct arrow sticker over the bug. When the fixed path guides the robot to the treasure, the case is solved!",
+    ],
+    materials: [
+      "Cardboard maze with grid path",
+      "Arrow-code path card with one wrong arrow",
+      "Correct arrow stickers",
+      "Magnifying-glass 'debugger' prop",
+    ],
+    steps: [
+      "Build the maze and lay the arrow-code path with one deliberate bug.",
+      "Give the visitor the detective magnifying glass.",
+      "Visitor traces the code and finds the wrong arrow (the bug).",
+      "They paste the correct sticker — the path now works and the robot reaches the treasure.",
+    ],
+    live: "maze",
+  },
+  {
+    id: "g2-p3",
+    grade: "Grade 2",
+    no: 3,
+    title: "Animal Animations in Scratch – Move That Frog!",
+    menu: "Animal Animations (Scratch)",
+    module: "Module 1: Computational thinking and programming · 1.3 Animal animations",
+    image: "images/g2_p3.svg",
+    description:
+      "A live Scratch-style stage where visitors snap code blocks — move, turn, change costume, repeat — to animate a frog sprite. Expo poster shows the same blocks, so visitors build the animation themselves.",
+    explanation: [
+      "In Scratch, a sprite (like our frog) is animated by snapping code blocks together: MOVE, TURN, NEXT COSTUME, REPEAT.",
+      "Costumes are pictures of the same animal in slightly different poses. Switching costumes fast = animation, exactly like a flip book.",
+      "At the stall, visitors snap blocks on the board: WHEN FLAG CLICKED → FOREVER → MOVE 10 STEPS → NEXT COSTUME → WAIT 0.2.",
+      "Press the green flag and the frog hops across the stage! The poster shows the real Scratch interface so visitors connect the game to the app.",
+    ],
+    materials: [
+      "Laptop with Scratch (scratch.mit.edu) or offline app",
+      "Frog sprite with 2–3 costumes",
+      "Expo poster of Scratch blocks interface",
+      "Green-flag button prop",
+    ],
+    steps: [
+      "Open Scratch and choose the frog sprite with its costumes.",
+      "Snap the blocks: when flag clicked → forever → move 10 steps → next costume → wait 0.2.",
+      "Visitor presses the green flag — the frog animates!",
+      "Let the visitor change numbers (steps, wait) and watch the animation change — live coding!",
+    ],
+    live: "scratch",
+  },
+  {
+    id: "g2-p4",
+    grade: "Grade 2",
+    no: 4,
+    title: "Repeat, Repeat, Repeat — Traffic Light Loop Machine",
+    menu: "Repeat Repeat Repeat",
+    module: "Module 1: Computational thinking and programming · 1.4 Repeat, repeat, repeat",
+    image: "images/g2_p4.svg",
+    description:
+      "A cardboard-box traffic light with red, yellow and green LEDs running a repeat loop. A loop card shows RED wait – GREEN wait – repeat, and visitors point to where the 'repeat' block is.",
+    explanation: [
+      "Real traffic lights run the same pattern again and again, all day long. In programming we call that a repeat loop.",
+      "The model is a cardboard-box traffic light with three real LEDs: red, yellow and green. A switch turns the loop on.",
+      "The loop card next to the light reads: RED wait → GREEN wait → REPEAT. Visitors are asked: 'Where is the repeat block?' — they must spot the part of the code that makes the pattern start over.",
+      "This teaches that a computer can repeat instructions forever without getting tired — we only write the pattern once and loop it.",
+    ],
+    materials: [
+      "Cardboard box traffic-light frame",
+      "Red, yellow and green LEDs",
+      "Switch + battery pack",
+      "Loop instruction card",
+    ],
+    steps: [
+      "Build the traffic-light frame from the cardboard box.",
+      "Fix the three LEDs in order: red, yellow, green.",
+      "Attach the loop card: RED wait – GREEN wait – repeat.",
+      "Flip the switch and let visitors watch the loop and point out the 'repeat' block.",
+    ],
+    live: "traffic",
+  },
+  {
+    id: "g2-p5",
+    grade: "Grade 2",
+    no: 5,
+    title: "Data All Around — Sorting & Counting Shop",
+    menu: "Data All Around",
+    module: "Module 2: Managing data · 2.1 Data all around",
+    image: "images/g2_p5.svg",
+    description:
+      "A mini class shop with labelled baskets for fruits, animals and shapes. Visitors sort items, count with tally marks and read the answer from the data — collecting data all around us.",
+    explanation: [
+      "Data is all around us: ages, favourite fruits, eye colours. Before computers can use data, someone must collect and sort it.",
+      "In the mini shop, items are mixed in a pile. Visitors sort each item into the correct labelled basket — that is collecting and classifying data.",
+      "After sorting, each basket is counted and the counts are written as tally marks on the shop board. One line = 1, and every 5th tally crosses the four.",
+      "The board becomes a tiny database of the shop — the same idea a computer does inside a spreadsheet, but done by hand so the idea is clear.",
+    ],
+    materials: [
+      "3–4 labelled shop baskets",
+      "Item cards (fruits, animals, shapes)",
+      "Chart board + marker for tally marks",
+      "Play-money props (optional)",
+    ],
+    steps: [
+      "Label each basket with one category.",
+      "Shuffle the item cards and spread them out.",
+      "Visitors sort each item into the correct basket.",
+      "Count every basket and add tally marks — the data is collected and used!",
+    ],
+    live: "baskets",
+  },
+  {
+    id: "g2-p6",
+    grade: "Grade 2",
+    no: 6,
+    title: "Our Data Story – Presenting with a Live Bar Graph",
+    menu: "Our Data Story",
+    module: "Module 2: Managing data · 2.2 Presenting data (project week)",
+    image: "images/g2_p6.svg",
+    description:
+      "A chart-paper bar graph made of coloured paper strips (e.g. favourite fruit). Sticky notes for visitor votes are added live onto the graph — data turned into a presented chart, telling our data story.",
+    explanation: [
+      "After we collect data, we must present it so everyone can understand it at one glance. A bar graph does this perfectly.",
+      "The poster is a chart-paper bar graph. Each bar is a coloured paper strip — one strip per choice, e.g. favourite fruits: apple, banana, mango.",
+      "Expo visitors vote by adding a sticky note onto their favourite bar. The bar grows live as more votes come in!",
+      "The tallest bar shows the class's favourite — the whole crowd reads the result instantly. That is the power of presenting data.",
+    ],
+    materials: [
+      "Chart paper bar graph",
+      "Coloured paper strips for bars",
+      "Sticky notes for votes",
+      "Marker for labels",
+    ],
+    steps: [
+      "Draw the graph axes and label the choices.",
+      "Build each bar with coloured paper strips.",
+      "Visitors stick a note on their favourite — the bar grows live.",
+      "Read the result: the tallest bar wins!",
+    ],
+    live: "bargraph",
+  },
+];

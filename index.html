@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICT Expo Projects — Grade 1 &amp; 2</title>
+  <meta name="description" content="12 hand-made working ICT Expo projects for Grade 1 and Grade 2 — with live interactive demos." />
+  <script>
+    /* dynamic <base> so assets load from the site root even on /project/g1-p1 URLs */
+    (function () {
+      var path = location.pathname.replace(/[^/]*$/, ""); // directory of current URL
+      var m = path.match(/^(.*\/expo-site\/)/);
+      document.write('<base href="' + (m ? m[1] : path) + '">');
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2.2" />
+</head>
+<body>
+  <!-- ===== Top Bar (mobile) ===== -->
+  <header class="topbar">
+    <button class="icon-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <a class="brand-mini" href="#/home">🎓 <span>ICT Expo</span></a>
+    <span class="chip grade-chip-top" id="topGradeChip" hidden></span>
+  </header>
+
+  <!-- ===== Backdrop for mobile menu ===== -->
+  <div class="backdrop" id="backdrop"></div>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🎓</div>
+      <div>
+        <h1>ICT EXPO</h1>
+        <p>Grade 1 &amp; 2 · Working Models</p>
+      </div>
+    </div>
+
+    <nav class="menu" id="menu">
+      <a class="menu-item" data-view="home" href="#/home"><span class="mi-icon">🏠</span><span class="mi-label">Home</span></a>
+
+      <p class="menu-heading">Grade 1 <span class="mh-count">6</span></p>
+      <a class="menu-item sub" data-id="g1-p1" href="#/project/g1-p1"><span class="mi-icon">01</span><span class="mi-label">Algorithms All Around Us</span></a>
+      <a class="menu-item sub" data-id="g1-p2" href="#/project/g1-p2"><span class="mi-icon">02</span><span class="mi-label">Bee-Bot Beginnings</span></a>
+      <a class="menu-item sub" data-id="g1-p3" href="#/project/g1-p3"><span class="mi-icon">03</span><span class="mi-label">What Happens Next?</span></a>
+      <a class="menu-item sub" data-id="g1-p4" href="#/project/g1-p4"><span class="mi-icon">04</span><span class="mi-label">Spot the Bug</span></a>
+      <a class="menu-item sub" data-id="g1-p5" href="#/project/g1-p5"><span class="mi-icon">05</span><span class="mi-label">Using Data — Tally Wall</span></a>
+      <a class="menu-item sub" data-id="g1-p6" href="#/project/g1-p6"><span class="mi-icon">06</span><span class="mi-label">My Computer Works — I·P·O</span></a>
+
+      <p class="menu-heading">Grade 2 <span class="mh-count">6</span></p>
+      <a class="menu-item sub" data-id="g2-p1" href="#/project/g2-p1"><span class="mi-icon">07</span><span class="mi-label">Precise Algorithms</span></a>
+      <a class="menu-item sub" data-id="g2-p2" href="#/project/g2-p2"><span class="mi-icon">08</span><span class="mi-label">Debugging Programs</span></a>
+      <a class="menu-item sub" data-id="g2-p3" href="#/project/g2-p3"><span class="mi-icon">09</span><span class="mi-label">Animal Animations (Scratch)</span></a>
+      <a class="menu-item sub" data-id="g2-p4" href="#/project/g2-p4"><span class="mi-icon">10</span><span class="mi-label">Repeat, Repeat, Repeat</span></a>
+      <a class="menu-item sub" data-id="g2-p5" href="#/project/g2-p5"><span class="mi-icon">11</span><span class="mi-label">Data All Around</span></a>
+      <a class="menu-item sub" data-id="g2-p6" href="#/project/g2-p6"><span class="mi-icon">12</span><span class="mi-label">Our Data Story — Bar Graph</span></a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <span class="dot"></span> 12 hand-made working models
+    </div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="main" id="main">
+
+    <!-- ============ HOME VIEW ============ -->
+    <section class="view" id="view-home" hidden>
+      <div class="hero">
+        <div class="hero-blob b1"></div>
+        <div class="hero-blob b2"></div>
+        <div class="hero-inner">
+          <span class="hero-badge">✨ Grade 1 &amp; Grade 2</span>
+          <h2 class="hero-title">ICT <em>Expo</em></h2>
+          <p class="hero-sub">Click any project to read the full explanation and try its live interactive work.</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="grade-head" id="grade1">
+          <span class="grade-tag g1">Grade 1</span>
+          <h3>ICT Expo Projects</h3>
+          <p>Six working models — from algorithms to input·process·output.</p>
+        </div>
+        <div class="grid" id="grid-g1"></div>
+
+        <div class="grade-head" id="grade2">
+          <span class="grade-tag g2">Grade 2</span>
+          <h3>ICT Expo Projects</h3>
+          <p>Six working models — from precise algorithms to presenting data.</p>
+        </div>
+        <div class="grid" id="grid-g2"></div>
+
+        <div class="note-card">
+          <div class="note-icon">📌</div>
+          <p><b>Note:</b> All 12 projects are low-cost hand-made models using cardboard, chart paper, LEDs, batteries and everyday classroom material. Each project covers one module from the textbook Contents list.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT DETAIL VIEW ============ -->
+    <section class="view" id="view-project" hidden>
+      <button class="back-link" id="backBtn">← Back to all projects</button>
+
+      <div class="detail-head" id="detailHead"></div>
+
+      <div class="detail-body">
+        <!-- LEFT: explanation -->
+        <div class="detail-left">
+          <div class="card steps-card">
+            <h4 class="card-title">🧭 How the Expo Demo Runs</h4>
+            <ol class="steps" id="detailSteps"></ol>
+          </div>
+        </div>
+
+        <!-- RIGHT: sticky image + info -->
+        <aside class="detail-right">
+          <div class="img-card">
+            <img id="detailImg" src="" alt="Reference model" />
+            <span class="img-tag">Reference image of the hand-made model</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- LIVE WORK -->
+      <div class="live-section" id="liveSection">
+        <div class="live-head">
+          <span class="live-badge">⚡ LIVE WORK</span>
+          <h3 id="liveTitle">Live Interactive Demo</h3>
+          <p id="liveDesc">Try it yourself — just like at the expo stall.</p>
+        </div>
+        <div class="live-stage" id="liveStage"></div>
+        <p class="live-hint" id="liveHint"></p>
+      </div>
+
+      <div class="pn-nav">
+        <button class="pn prev" id="prevBtn"></button>
+        <button class="pn next" id="nextBtn"></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="projects-data.js?v=2.1"></script>
+  <script src="live-works.js?v=2.0"></script>
+  <script src="main.js?v=2.0"></script>
+</body>
+</html>

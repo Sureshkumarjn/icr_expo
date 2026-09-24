@@ -1,0 +1,16 @@
+# ICT Expo site — clean URLs (no index.html, no .html)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # /project/g1-p1  ->  /index.html (router reads the path)
+  RewriteRule ^project/([A-Za-z0-9_-]+)/?$ index.html [L]
+
+  # /home -> index.html
+  RewriteRule ^home/?$ index.html [L]
+
+  # /g1-p1 style shortcuts also work
+  RewriteRule ^(g[12]-p[1-6])/?$ index.html [L]
+
+  # Serve directory root without "index.html" in the URL
+  DirectoryIndex index.html
+</IfModule>
